@@ -11,6 +11,7 @@ import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import androidx.recyclerview.widget.GridLayoutManager
 import com.adit.catalog.R
 import com.adit.catalog.databinding.ActivityMainBinding
 import com.adit.catalog.ui.detail.DetailActivity
@@ -35,54 +36,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupRecyclerView()
-        observeViewModel()
+        setupObservers()
         setupImageSlider()
         setupSearchView()
+        setupChipSorting()
+        setupChipGroupStyles()
 
         mainViewModel.fetchMenuList()
 
+
         binding.apply {
             btnFavorite.setOnClickListener {
-                intent = Intent(this@MainActivity, FavoriteActivity::class.java)
-                startActivity(intent)
+                navigateToFavoriteActivity()
             }
-
-
-            chipSortAz.setOnClickListener {
-                Log.d("MainActivity", "Chip A-Z selected")
-                mainViewModel.sortList(Constant.SortType.AZ)
-            }
-
-            chipSortZa.setOnClickListener {
-                Log.d("MainActivity", "Chip Z-A selected")
-                mainViewModel.sortList(Constant.SortType.ZA)
-            }
-
-            chipSortPriceLowToHigh.setOnClickListener {
-                Log.d("MainActivity", "Chip Price Low to High selected")
-                mainViewModel.sortList(Constant.SortType.PRICE_LOW_TO_HIGH)
-            }
-
-            chipSortPriceHighToLow.setOnClickListener {
-                Log.d("MainActivity", "Chip Price High to Low selected")
-                mainViewModel.sortList(Constant.SortType.PRICE_HIGH_TO_LOW)
-            }
+            rvBook.layoutManager = GridLayoutManager(this@MainActivity, 2)
         }
-
-
-
-        val chipGroupSort: ChipGroup = binding.chipGroupSort
-        for (i in 0 until chipGroupSort.childCount) {
-            val chip = chipGroupSort.getChildAt(i) as Chip
-            chip.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    chip.setChipBackgroundColorResource(R.color.green_200)
-                } else {
-                    chip.setChipBackgroundColorResource(R.color.white)
-                }
-            }
-        }
-
     }
 
     private fun setupRecyclerView() {
@@ -94,7 +62,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             },
             onFavoriteClick = { item ->
-                Log.d("MainActivity", "Tombol favorit diklik untuk: ${item.title}")
                 if (item.isFavorite) {
                     mainViewModel.removeFromFavorites(item)
                 } else {
@@ -105,20 +72,21 @@ class MainActivity : AppCompatActivity() {
         binding.rvBook.adapter = mainAdapter
     }
 
-    private fun observeViewModel() {
+    private fun setupObservers() {
         mainViewModel.filteredList.observe(this) { filteredList ->
-            Log.d("MainActivity", "Filtered List Updated: ${filteredList.size} items")
-
             val updatedList = filteredList.map { item ->
-                item.copy(isFavorite = mainViewModel.favoriteBooks.value?.any { it.id == item.id } ?: false)
+                item.copy(isFavorite = mainViewModel.favoriteBooks.value?.any { it.id == item.id }
+                    ?: false)
             }
-            mainAdapter.submitList(updatedList)
-            binding.rvBook.scrollToPosition(0)
+
+            mainAdapter.submitDataWithScroll(updatedList)
+
+            binding.rvBook.post {
+                binding.rvBook.scrollToPosition(0)
+            }
         }
 
         mainViewModel.favoriteBooks.observe(this) { favoriteBooks ->
-            Log.d("MainActivity", "Favorite Books Updated: ${favoriteBooks.size} items")
-
             val updatedList = mainViewModel.filteredList.value?.map { item ->
                 item.copy(isFavorite = favoriteBooks.any { it.id == item.id })
             }
@@ -126,13 +94,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     private fun setupImageSlider() {
-        val imageList = ArrayList<SlideModel>().apply {
-            add(SlideModel("https://bit.ly/2YoJ77H", ScaleTypes.FIT))
-            add(SlideModel("https://bit.ly/2BteuF2", ScaleTypes.FIT))
-            add(SlideModel("https://bit.ly/3fLJf72", ScaleTypes.FIT))
+        val imageList = listOf(
+            SlideModel("https://bit.ly/2YoJ77H", ScaleTypes.FIT),
+            SlideModel("https://bit.ly/2BteuF2", ScaleTypes.FIT),
+            SlideModel("https://bit.ly/3fLJf72", ScaleTypes.FIT)
+        )
+
+        try {
+            binding.imageSlider.setImageList(imageList)
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Error loading image slider: ${e.message}")
         }
-        binding.imageSlider.setImageList(imageList)
     }
 
     private fun setupSearchView() {
@@ -140,8 +114,8 @@ class MainActivity : AppCompatActivity() {
         val clearButton = binding.searchView.ivClear
 
         searchEditText.addTextChangedListener {
-            val query = it.toString()
-            mainViewModel.filterMenu(query)
+            val query = it.toString().trim()
+            mainViewModel.filterBook(query)
             clearButton.visibility = if (query.isEmpty()) View.GONE else View.VISIBLE
         }
 
@@ -150,19 +124,59 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
-        if (ev?.action == MotionEvent.ACTION_DOWN) {
-            val v = currentFocus
-            if (v is EditText) {
-                val outRect = Rect()
-                v.getGlobalVisibleRect(outRect)
-                if (!outRect.contains(ev.rawX.toInt(), ev.rawY.toInt())) {
-                    v.clearFocus()
-                    val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-                    imm.hideSoftInputFromWindow(v.windowToken, 0)
-                }
+    private fun setupChipSorting() {
+
+        binding.apply {
+            chipSortAz.setOnClickListener {
+                mainViewModel.sortList(Constant.SortType.AZ)
+            }
+            chipSortZa.setOnClickListener {
+                mainViewModel.sortList(Constant.SortType.ZA)
+            }
+            chipSortPriceLowToHigh.setOnClickListener {
+                mainViewModel.sortList(Constant.SortType.PRICE_LOW_TO_HIGH)
+            }
+            chipSortPriceHighToLow.setOnClickListener {
+                mainViewModel.sortList(Constant.SortType.PRICE_HIGH_TO_LOW)
             }
         }
+
+    }
+
+    private fun setupChipGroupStyles() {
+        val chipGroupSort: ChipGroup = binding.chipGroupSort
+        for (i in 0 until chipGroupSort.childCount) {
+            val chip = chipGroupSort.getChildAt(i) as Chip
+            chip.setOnCheckedChangeListener { _, isChecked ->
+                chip.setChipBackgroundColorResource(
+                    if (isChecked) R.color.green_200 else R.color.white
+                )
+            }
+        }
+    }
+
+    private fun navigateToFavoriteActivity() {
+        val intent = Intent(this@MainActivity, FavoriteActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (ev?.action == MotionEvent.ACTION_DOWN) {
+            hideKeyboardOnOutsideTouch(ev)
+        }
         return super.dispatchTouchEvent(ev)
+    }
+
+    private fun hideKeyboardOnOutsideTouch(event: MotionEvent) {
+        val v = currentFocus
+        if (v is EditText) {
+            val outRect = Rect()
+            v.getGlobalVisibleRect(outRect)
+            if (!outRect.contains(event.rawX.toInt(), event.rawY.toInt())) {
+                v.clearFocus()
+                val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(v.windowToken, 0)
+            }
+        }
     }
 }

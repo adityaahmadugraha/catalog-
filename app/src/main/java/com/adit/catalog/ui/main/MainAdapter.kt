@@ -1,5 +1,6 @@
 package com.adit.catalog.ui.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -30,7 +31,6 @@ class MainAdapter(
                     .error(R.color.gray)
                     .into(binding.image)
 
-
                 if (data.isFavorite) {
                     btnFavorite.setImageResource(R.drawable.ic_favorite_red)
                 } else {
@@ -53,7 +53,15 @@ class MainAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val item = getItem(position)
+        Log.d("MainAdapter", "Binding item at position $position: ${item.title}")
+        holder.bind(item)
+    }
+
+    fun submitDataWithScroll(data: List<ObjekData>) {
+        submitList(data)
+
+        notifyDataSetChanged()
     }
 
     companion object {

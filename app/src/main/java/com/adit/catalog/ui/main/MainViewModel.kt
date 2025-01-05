@@ -1,6 +1,5 @@
 package com.adit.catalog.ui.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,97 +12,76 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    private val _bookList = MutableLiveData<List<ObjekData>>()
     private val _filteredList = MutableLiveData<List<ObjekData>>()
     val filteredList: LiveData<List<ObjekData>> = _filteredList
 
-    private var originalList: List<ObjekData> = emptyList()
 
     val favoriteBooks: LiveData<List<ObjekDataEntity>> = repository.getFavoriteBooks()
 
+    private var originalList: List<ObjekData> = emptyList()
+    private var lastQuery: String = ""
+
+    private var currentSortType: Constant.SortType = Constant.SortType.AZ
+
     fun fetchMenuList() {
-        val bookList = repository.getListBook()
-        _bookList.value = bookList
-        originalList = bookList
-        _filteredList.value = bookList
+        viewModelScope.launch {
+                originalList = repository.getListBook()
+                _filteredList.value = applySorting(originalList)
+
+        }
     }
 
     fun addToFavorites(book: ObjekData) {
-        val objekDataEntity = ObjekDataEntity(
-            id = book.id,
-            image = book.image,
-            title = book.title,
-            sinopsis = book.sinopsis,
-            thick = book.thick,
-            price = book.price,
-            category = book.category,
-            author = book.author,
-            published = book.published
-        )
         viewModelScope.launch {
-            try {
-                Log.d("MainViewModel", "Adding ${book.title} to favorites")
-                repository.addToFavorites(objekDataEntity)
-                Log.d("MainViewModel", "${book.title} successfully added to favorites")
-            } catch (e: Exception) {
-                Log.e("MainViewModel", "Failed to add ${book.title} to favorites", e)
-            }
+                repository.addToFavorites(book.toEntity())
         }
     }
 
     fun removeFromFavorites(book: ObjekData) {
-        val objekDataEntity = ObjekDataEntity(
-            id = book.id,
-            image = book.image,
-            title = book.title,
-            sinopsis = book.sinopsis,
-            thick = book.thick,
-            price = book.price,
-            category = book.category,
-            author = book.author,
-            published = book.published
-        )
         viewModelScope.launch {
-            repository.removeFromFavorites(objekDataEntity)
+                repository.removeFromFavorites(book.toEntity())
         }
     }
 
-    fun filterMenu(query: String) {
+    fun filterBook(query: String) {
+        if (query == lastQuery) return
+        lastQuery = query
+
         val filtered = if (query.isEmpty()) {
             originalList
         } else {
             originalList.filter {
-                it.title.contains(query, ignoreCase = true) || it.category.contains(query, ignoreCase = true)
+                it.title.contains(query, ignoreCase = true) ||
+                        it.category.contains(query, ignoreCase = true)
             }
         }
-
         _filteredList.value = applySorting(filtered)
+
+    }
+    fun sortList(sortType: Constant.SortType) {
+        _filteredList.value = when (sortType) {
+            Constant.SortType.AZ -> _filteredList.value?.sortedBy { it.title }
+            Constant.SortType.ZA -> _filteredList.value?.sortedByDescending { it.title }
+            Constant.SortType.PRICE_LOW_TO_HIGH -> _filteredList.value?.sortedBy { it.price }
+            Constant.SortType.PRICE_HIGH_TO_LOW -> _filteredList.value?.sortedByDescending { it.price }
+        }
     }
 
-    fun sortList(sortType: Constant.SortType) {
-        currentSortType = sortType
-        _filteredList.value = applySorting(_filteredList.value ?: originalList)
-    }
 
     private fun applySorting(list: List<ObjekData>): List<ObjekData> {
-        Log.d("MainViewModel", "Sorting list with type: $currentSortType")
-        val sortedList = when (currentSortType) {
+        return when (currentSortType) {
             Constant.SortType.AZ -> list.sortedBy { it.title }
             Constant.SortType.ZA -> list.sortedByDescending { it.title }
             Constant.SortType.PRICE_LOW_TO_HIGH -> list.sortedBy { it.price }
             Constant.SortType.PRICE_HIGH_TO_LOW -> list.sortedByDescending { it.price }
         }
-        Log.d("MainViewModel", "Sorted list size: ${sortedList.size}")
-        return sortedList
     }
 
 
-
-
-    var currentSortType: Constant.SortType = Constant.SortType.AZ
 }
