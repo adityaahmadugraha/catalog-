@@ -24,7 +24,6 @@ class AdapterFavorite(
             binding.apply {
                 tvTitle.text = data.title
                 tvPrice.text = formatToRupiah(data.price)
-                tvRatting.text = data.author
                 tvDescription.text = data.thick
 
                 Glide.with(itemView.context)

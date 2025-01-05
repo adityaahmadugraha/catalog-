@@ -21,7 +21,6 @@ class Repository @Inject constructor(
         }
     }
 
-
     fun getFavoriteBooks() = favoriteDao.getAllFavorites()
 
     suspend fun addToFavorites(objekData: ObjekDataEntity) {

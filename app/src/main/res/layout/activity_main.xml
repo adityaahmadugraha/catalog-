@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.main.MainActivity">
 
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/image_slider"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         app:iss_auto_cycle="true"
         app:iss_delay="1000"
         app:iss_period="1000"
@@ -21,30 +21,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/btn_filter"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="2dp"
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupSort"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/me"
-        app:layout_constraintBottom_toBottomOf="@+id/search_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/search_view"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_favorite"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_sort_az"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_a_z" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_sort_za"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_z_a" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_sort_price_low_to_high"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tertinggi" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_sort_price_high_to_low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/terendah" />
+
+    </com.google.android.material.chip.ChipGroup>
+
 
     <ImageView
         android:id="@+id/btn_favorite"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginTop="2dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/favorite"
         app:layout_constraintBottom_toBottomOf="@+id/search_view"
-        app:layout_constraintEnd_toStartOf="@+id/btn_filter"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/search_view"
         app:layout_constraintVertical_bias="0.0" />
-
 
     <include
         android:id="@+id/search_view"
@@ -52,7 +80,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toStartOf="@+id/btn_favorite"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,8 +99,5 @@
         app:layout_constraintTop_toBottomOf="@+id/image_slider"
         app:spanCount="2"
         tools:listitem="@layout/list_product" />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

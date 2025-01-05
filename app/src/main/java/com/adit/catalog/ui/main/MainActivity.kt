@@ -11,11 +11,15 @@ import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import com.adit.catalog.R
 import com.adit.catalog.databinding.ActivityMainBinding
 import com.adit.catalog.ui.detail.DetailActivity
 import com.adit.catalog.ui.favorite.FavoriteActivity
+import com.adit.catalog.util.Constant
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,10 +41,48 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.fetchMenuList()
 
-        binding.btnFavorite.setOnClickListener {
-            intent = Intent(this, FavoriteActivity::class.java)
-            startActivity(intent)
+        binding.apply {
+            btnFavorite.setOnClickListener {
+                intent = Intent(this@MainActivity, FavoriteActivity::class.java)
+                startActivity(intent)
+            }
+
+
+            chipSortAz.setOnClickListener {
+                Log.d("MainActivity", "Chip A-Z selected")
+                mainViewModel.sortList(Constant.SortType.AZ)
+            }
+
+            chipSortZa.setOnClickListener {
+                Log.d("MainActivity", "Chip Z-A selected")
+                mainViewModel.sortList(Constant.SortType.ZA)
+            }
+
+            chipSortPriceLowToHigh.setOnClickListener {
+                Log.d("MainActivity", "Chip Price Low to High selected")
+                mainViewModel.sortList(Constant.SortType.PRICE_LOW_TO_HIGH)
+            }
+
+            chipSortPriceHighToLow.setOnClickListener {
+                Log.d("MainActivity", "Chip Price High to Low selected")
+                mainViewModel.sortList(Constant.SortType.PRICE_HIGH_TO_LOW)
+            }
         }
+
+
+
+        val chipGroupSort: ChipGroup = binding.chipGroupSort
+        for (i in 0 until chipGroupSort.childCount) {
+            val chip = chipGroupSort.getChildAt(i) as Chip
+            chip.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    chip.setChipBackgroundColorResource(R.color.green_200)
+                } else {
+                    chip.setChipBackgroundColorResource(R.color.white)
+                }
+            }
+        }
+
     }
 
     private fun setupRecyclerView() {
@@ -65,10 +107,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         mainViewModel.filteredList.observe(this) { filteredList ->
-            mainAdapter.submitList(filteredList)
+            Log.d("MainActivity", "Filtered List Updated: ${filteredList.size} items")
+
+            val updatedList = filteredList.map { item ->
+                item.copy(isFavorite = mainViewModel.favoriteBooks.value?.any { it.id == item.id } ?: false)
+            }
+            mainAdapter.submitList(updatedList)
+            binding.rvBook.scrollToPosition(0)
         }
 
         mainViewModel.favoriteBooks.observe(this) { favoriteBooks ->
+            Log.d("MainActivity", "Favorite Books Updated: ${favoriteBooks.size} items")
+
             val updatedList = mainViewModel.filteredList.value?.map { item ->
                 item.copy(isFavorite = favoriteBooks.any { it.id == item.id })
             }
