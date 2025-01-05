@@ -10,19 +10,19 @@ object Data {
             1,
             R.drawable.buku1,
             "Untukmu Indonesia",
-"Tumbuh dari keluarga pendidik membuat dunia pendidikan begitu bermakna dan melekat begitu erat dalam perjalanan hidup Iwan Syahril. Pengalaman terdekat tersebut kemudian membawanya melanglang buana, jauh mendalami bagaimana pendidikan dapat menjadi pijakan untuk memberi dampak perubahan bagi peradaban sebuah bangsa. \n" +
-        "\n" +
-        "Bagi Iwan, pendidikan merupakan ruang untuk memanusiakan dan memerdekakan, ruang untuk memuliakan harkat-martabat manusia dan kemanusiaan, serta harus menjadi ruang paling inklusif bagi setiap anak bangsa, tanpa terkecuali tumbuh bersama merancang masa depan. Ia percaya bahwa ikhtiar transformasi pendidikan akan tercapai apabila digerakkan secara gotong-royong oleh seluruh ekosistem pendidikan. Setiap orang mempunyai peran, setiap orang berhak mengambil tempat dan bergerak bersama-sama menuju satu tujuan yaitu mewujudkan layanan terbaik untuk semua murid. Bagi Iwan inilah jalan terbaik untuk menyongsong masa depan Indonesia. \n" +
-        "\n" +
-        "***\n" +
-        "\n" +
-        "“Pak Iwan memikirkan kenapa Indonesia harus melakukan transformasi pendidikan untuk guru. Ia pernah mengalami menjadi guru. Ia tahu filosofi Ki Hadjar Dewantara kuat dan membumi dalam budaya Indonesia. Ia juga memikirkan kontekstualisasinya untuk mempercepat, mempermudah, dan memaksimalkan peningkatan mutu pendidikan.” —Fasli Jalal, Wakil Menteri Pendidikan Nasional Periode 2010-2011 dan Rektor Universitas Yarsi Jakarta\n" +
-        "\n" +
-        "“Saya mengenal Bang Iwan sebagai sosok yang percaya akan kekuatan paradigma, bersikap terbuka, dan selalu bersemangat menjalin kerja sama. Meski sadar terhadap banyaknya persoalan di dunia pendidikan, ia selalu punya perspektif yang membangun harapan bahwa perubahan pendidikan adalah sebuah keniscayaan.” —Najeela Shihab, Praktisi Pendidikan dan Pendiri Sekolah Cikal\n" +
-        "\n" +
-        "“Thank you, Pak Iwan, for being a natural mentor in the field of education, and for always rooting for future change-makers!” —Maudy Ayunda, Aktris, Penulis, dan Tokoh Perempuan\n" +
-        "\n" +
-        "“Baru kali ini kami merasakan ada kedekatan dengan pejabat pemerintah. Pak Dirjen yang selalu berupaya melihat dari dekat, membersamai para guru mengajar di berbagai daerah.” —Sri Wahyaningsih, Dewan Pembina Sanggar Anak Alam Yogyakarta",
+            "Tumbuh dari keluarga pendidik membuat dunia pendidikan begitu bermakna dan melekat begitu erat dalam perjalanan hidup Iwan Syahril. Pengalaman terdekat tersebut kemudian membawanya melanglang buana, jauh mendalami bagaimana pendidikan dapat menjadi pijakan untuk memberi dampak perubahan bagi peradaban sebuah bangsa. \n" +
+                    "\n" +
+                    "Bagi Iwan, pendidikan merupakan ruang untuk memanusiakan dan memerdekakan, ruang untuk memuliakan harkat-martabat manusia dan kemanusiaan, serta harus menjadi ruang paling inklusif bagi setiap anak bangsa, tanpa terkecuali tumbuh bersama merancang masa depan. Ia percaya bahwa ikhtiar transformasi pendidikan akan tercapai apabila digerakkan secara gotong-royong oleh seluruh ekosistem pendidikan. Setiap orang mempunyai peran, setiap orang berhak mengambil tempat dan bergerak bersama-sama menuju satu tujuan yaitu mewujudkan layanan terbaik untuk semua murid. Bagi Iwan inilah jalan terbaik untuk menyongsong masa depan Indonesia. \n" +
+                    "\n" +
+                    "***\n" +
+                    "\n" +
+                    "“Pak Iwan memikirkan kenapa Indonesia harus melakukan transformasi pendidikan untuk guru. Ia pernah mengalami menjadi guru. Ia tahu filosofi Ki Hadjar Dewantara kuat dan membumi dalam budaya Indonesia. Ia juga memikirkan kontekstualisasinya untuk mempercepat, mempermudah, dan memaksimalkan peningkatan mutu pendidikan.” —Fasli Jalal, Wakil Menteri Pendidikan Nasional Periode 2010-2011 dan Rektor Universitas Yarsi Jakarta\n" +
+                    "\n" +
+                    "“Saya mengenal Bang Iwan sebagai sosok yang percaya akan kekuatan paradigma, bersikap terbuka, dan selalu bersemangat menjalin kerja sama. Meski sadar terhadap banyaknya persoalan di dunia pendidikan, ia selalu punya perspektif yang membangun harapan bahwa perubahan pendidikan adalah sebuah keniscayaan.” —Najeela Shihab, Praktisi Pendidikan dan Pendiri Sekolah Cikal\n" +
+                    "\n" +
+                    "“Thank you, Pak Iwan, for being a natural mentor in the field of education, and for always rooting for future change-makers!” —Maudy Ayunda, Aktris, Penulis, dan Tokoh Perempuan\n" +
+                    "\n" +
+                    "“Baru kali ini kami merasakan ada kedekatan dengan pejabat pemerintah. Pak Dirjen yang selalu berupaya melihat dari dekat, membersamai para guru mengajar di berbagai daerah.” —Sri Wahyaningsih, Dewan Pembina Sanggar Anak Alam Yogyakarta",
             "223 halaman",
             165000,
             "Nonfiksi",
@@ -57,9 +57,9 @@ object Data {
             4,
             R.drawable.buku2,
             "Kartun Riwayat Peradaban Modern Jilid 1",
-      "Lagi-lagi Kartunis Larry Gonick mengubah pandangan kita tentang pelajaran sejarah! Kali ini Gonick menyajikan berbagai peristiwa pada permulaan peradaban modern secara kocak dan tak terduga. \n" +
-              "\n" +
-              "Dalam Kartun Riwayat Peradaban Modern Jilid 1, saksikanlah penemuan dan penjajahan benua Amerika, reformasi Eropa, serta kelahiran aliran politik dan sains modern. Tampil juga tokoh-tokoh yang pemikiran dan buah karyanya membentuk dunia sekarang: Martin Luther, Shakespeare, Galileo, Newton, dan banyak lagi!",
+            "Lagi-lagi Kartunis Larry Gonick mengubah pandangan kita tentang pelajaran sejarah! Kali ini Gonick menyajikan berbagai peristiwa pada permulaan peradaban modern secara kocak dan tak terduga. \n" +
+                    "\n" +
+                    "Dalam Kartun Riwayat Peradaban Modern Jilid 1, saksikanlah penemuan dan penjajahan benua Amerika, reformasi Eropa, serta kelahiran aliran politik dan sains modern. Tampil juga tokoh-tokoh yang pemikiran dan buah karyanya membentuk dunia sekarang: Martin Luther, Shakespeare, Galileo, Newton, dan banyak lagi!",
             "267 halaman",
             125000,
             "Nonfiksi, Komik, Sejarah",
@@ -68,36 +68,39 @@ object Data {
         ),
         ObjekData(
             5,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
+            R.drawable.buku5,
+            "Laut Bercerita",
+            "Laut Bercerita, novel terbaru Leila S. Chudori, bertutur tentang kisah keluarga yang kehilangan, sekumpulan sahabat yang merasakan kekosongan di dada, sekelompok orang yang gemar menyiksa dan lancar berkhianat, sejumlah keluarga yang mencari kejelasan makam anaknya, dan tentang cinta yang tak akan luntur.",
+            "400 halaman",
+            92000,
+            "Nonfiksi",
+            "Leila S. Chudori",
+            "21 Des 2017"
         ),
         ObjekData(
             6,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
+            R.drawable.buku6,
+            "Sang Alkemis",
+            "Setiap beberapa puluh tahun, muncul sebuah buku yang mengubah hidup para pembacanya selamanya. Novel Paulo Coelho yang memikat ini telah memberikan inspirasi bagi jutaan orang di seluruh dunia. Kisah yang sangat sederhana, namun menyimpan kebijaksanaan penuh makna, tentang anak gembala bernama Santiago yang berkelana dari rumahnya di Spanyol ke padang pasir Mesir untuk mencari harta karun terpendam di Piramida-Piramida. Di perjalanan dia bertemu seorang perempuan Gipsi, seorang lelaki yang mengaku dirinya Raja, dan seorang alkemis––semuanya menunjukkan jalan kepada Santiago untuk menuju harta karunnya. Tak ada yang tahu isi harta karun itu, atau apakah Santiago akan berhasil mengatasi rintangan-rintangan sepanjang jalan. Namun perjalanan yang semula bertujuan untuk menemukan harta duniawi berubah menjadi penemuan harta di dalam diri. Kaya, menggugah, dan sangat manusiawi, kisah Santiago menunjukkan kekuatan mimpi-mimpi dan pentingnya mendengarkan suara hati kita.",
+            "224 halaman",
+            52000,
+            "Fantasy Fiction, Adventure fiction",
+            "Paulo Coelho",
+            "Agustus 21, 2021"
         ),
         ObjekData(
             7,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
+            R.drawable.buku7,
+            "Good to Great",
+            "Selama lima tahun melakukan penelitian, Jim Collins dan timnya, setelah menyisir data dan ribuan halaman wawancara, menemukan faktor-faktor kunci penentu kehebatan—mengapa sejumlah perusahaan berhasil membuat lompatan, sementara yang lainnya gagal.\n" +
+                    "\n" +
+                    "“Beberapa dari konsep-konsep kunci dalam studi ini,” komentar Jim, “mematahkan kultur bisnis modern kita dan, terus terang, akan membuat sekalangan orang resah.”\n" +
+                    "Mungkin saja, tapi siapa yang bisa mengabaikan temuan-temuan ini?",
+            "363 halaman",
+            112500,
             "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
+            "Jim Collins",
+            "20 Oktober 2020"
         ),
         ObjekData(
             8,
@@ -110,194 +113,8 @@ object Data {
             "Ziggy Zezsyazeoviennazabrizkie",
             "November 6, 2024"
         ),
-        ObjekData(
-            9,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),
-        ObjekData(
-            10,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),
-        ObjekData(
-            11,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),
-        ObjekData(
-            12,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),
-        ObjekData(
-            13,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),      ObjekData(
-            14,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),      ObjekData(
-            15,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),      ObjekData(
-            16,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),      ObjekData(
-                17,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),
-        ObjekData(
-            18,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),      ObjekData(
-                19,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),
-        ObjekData(
-            20,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),
-        ObjekData(
-            21,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),
-        ObjekData(
-            22,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),      ObjekData(
-            23,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),
-        ObjekData(
-            24,
-            R.drawable.buku24,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
-            "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
-        ),
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
         ObjekData(
             25,
             R.drawable.buku25,
@@ -317,9 +134,6 @@ object Data {
         ),
 
 
-
-
-
         ObjekData(
             26,
             R.drawable.buku26,
@@ -337,28 +151,6 @@ object Data {
             "Geger Riyanto, dkk",
             "3 Juli 2024"
         ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         ObjekData(
@@ -418,13 +210,6 @@ object Data {
             "Ramadhan KH",
             "19 Juni 2024"
         ),
-
-
-
-
-
-
-
 
 
         )
