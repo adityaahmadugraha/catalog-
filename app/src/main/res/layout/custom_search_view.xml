@@ -22,7 +22,7 @@
         android:layout_weight="1"
         android:background="@null"
         android:maxLines="1"
-        android:hint="Cari di sini..."
+        android:hint="@string/cari_di_sini"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:textColor="@color/black"

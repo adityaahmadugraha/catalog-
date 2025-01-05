@@ -271,7 +271,7 @@ object Data {
         ),
         ObjekData(
             24,
-            R.drawable.buku2,
+            R.drawable.buku24,
             "Di Tanah Lada",
             "",
             "8",
@@ -300,7 +300,7 @@ object Data {
         
         ObjekData(
             25,
-            R.drawable.buku2,
+            R.drawable.buku25,
             "Mari Pergi Lebih Jauh",
             "Fifi ditangkap Kucing-Kucing Luar Biasa.\n" +
                     "\n" +
@@ -322,7 +322,7 @@ object Data {
 
         ObjekData(
             26,
-            R.drawable.buku2,
+            R.drawable.buku26,
             "Pergulatan Transisi Energi Berkeadilan: Satu Isu Beragam Dilema",
             "Kata transisi menyiratkan perubahan yang kalem, perlahan, dan disepakati bersama. Sementara itu, dengan masifnya perubahan yang disyaratkan, transisi dalam konteks energi kerap berujung dengan pergolakan, kerugian, dan kekalahan menyesakkan bagi beberapa pihak. \n" +
                     "\n" +
@@ -363,7 +363,7 @@ object Data {
 
         ObjekData(
             27,
-            R.drawable.buku2,
+            R.drawable.buku27,
             "Ensiklopedia Kisah Planet Bumi",
             "Pada 4,5 miliar tahun lalu, sebuah planet muda terbentuk dari pusaran debu bintang di Lengan Orion galaksi Bima Sakti. Namanya Bumi.\n" +
                     "\n" +
@@ -376,7 +376,7 @@ object Data {
         ),
         ObjekData(
             28,
-            R.drawable.buku2,
+            R.drawable.buku28,
             "Ensiklopedia Kisah Alam Semesta",
             "Seberapa dahsyat Ledakan Besar? Dari mana asal Matahari, Bulan, dan planet-planet? Da, apa yang bisa dibuat dari debu bintang?\n" +
                     "\n" +
@@ -389,7 +389,7 @@ object Data {
         ),
         ObjekData(
             29,
-            R.drawable.buku2,
+            R.drawable.buku29,
             "Aksara Amananunna",
             "12 manusia\n" +
                     "12 zaman\n" +
@@ -405,7 +405,7 @@ object Data {
 
         ObjekData(
             30,
-            R.drawable.buku2,
+            R.drawable.buku30,
             "Semangat Hidup & Pasrah kepada Tuhan: Memoar William Soeryadjaya",
             "Mengalami jatuh bangun dalam menjalankan bisnis, William Soeryadjaya tidak pernah patah arang. Prinsip hidupnya sebagai manusia adalah mengabdi serta menjadi berkat bagi sesama. Karena itulah ketika Oom William, sapaan akrabnya, harus melepaskan saham Astra—perusahaan yang dia rintis dan kembangkan hingga mencapai kesuksesan—demi menyelamatkan Bank Summa, hal pertama yang dipikirkan justru nasib karyawan dan nasabah bank tersebut. \n" +
                     "\n" +

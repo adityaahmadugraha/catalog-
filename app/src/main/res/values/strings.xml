@@ -2,5 +2,15 @@
     <string name="app_name">Catalog</string>
     <string name="thick_format">Jumlah halaman : %s</string>
     <string name="gendre_format">Jenis : %s</string>
+    <string name="kategori">Kategori</string>
+    <string name="sort_a_z">Sort A-Z</string>
+    <string name="sort_z_a">Sort Z-A</string>
+    <string name="tertinggi">Tertinggi</string>
+    <string name="terendah">Terendah</string>
+    <string name="button_favorite">button favorite</string>
+    <string name="_120_000">120_000</string>
+    <string name="_5">5</string>
+    <string name="cari_di_sini">Cari di sini...</string>
+    <string name="logo">logo</string>
 
 </resources>

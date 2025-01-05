@@ -23,13 +23,13 @@ class MainAdapter(
             binding.apply {
                 tvTitle.text = data.title
                 tvPrice.text = formatToRupiah(data.price)
-                tvRatting.text = data.author
                 tvDescription.text = data.thick
 
                 Glide.with(itemView.context)
                     .load(data.image)
                     .error(R.color.gray)
                     .into(binding.image)
+
 
                 if (data.isFavorite) {
                     btnFavorite.setImageResource(R.drawable.ic_favorite_red)

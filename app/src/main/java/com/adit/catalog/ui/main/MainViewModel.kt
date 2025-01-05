@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.adit.catalog.data.local.ObjekData
 import com.adit.catalog.data.repository.Repository
 import com.adit.catalog.data.room.ObjekDataEntity
+import com.adit.catalog.util.Constant
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,26 +19,18 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _bookList = MutableLiveData<List<ObjekData>>()
+    private val _filteredList = MutableLiveData<List<ObjekData>>()
+    val filteredList: LiveData<List<ObjekData>> = _filteredList
 
-    private val _filteredList = MutableLiveData<List<ObjekData>?>()
-    val filteredList: MutableLiveData<List<ObjekData>?> = _filteredList
+    private var originalList: List<ObjekData> = emptyList()
 
     val favoriteBooks: LiveData<List<ObjekDataEntity>> = repository.getFavoriteBooks()
 
     fun fetchMenuList() {
-        _bookList.value = repository.getListBook()
-        _filteredList.value = _bookList.value
-    }
-
-    fun filterMenu(query: String) {
-        val filtered = if (query.isEmpty()) {
-            _bookList.value
-        } else {
-            _bookList.value?.filter {
-                it.title.contains(query, ignoreCase = true)
-            }
-        }
-        _filteredList.value = filtered
+        val bookList = repository.getListBook()
+        _bookList.value = bookList
+        originalList = bookList
+        _filteredList.value = bookList
     }
 
     fun addToFavorites(book: ObjekData) {
@@ -54,21 +47,15 @@ class MainViewModel @Inject constructor(
         )
         viewModelScope.launch {
             try {
-
-                Log.d("MainViewModel", "Menambahkan ${book.title} ke favorit")
-
+                Log.d("MainViewModel", "Adding ${book.title} to favorites")
                 repository.addToFavorites(objekDataEntity)
-
-                Log.d("MainViewModel", "${book.title} berhasil ditambahkan ke favorit")
+                Log.d("MainViewModel", "${book.title} successfully added to favorites")
             } catch (e: Exception) {
-
-                Log.e("MainViewModel", "Gagal menambahkan ${book.title} ke favorit", e)
+                Log.e("MainViewModel", "Failed to add ${book.title} to favorites", e)
             }
         }
     }
 
-
-    // Menghapus buku dari favorit
     fun removeFromFavorites(book: ObjekData) {
         val objekDataEntity = ObjekDataEntity(
             id = book.id,
@@ -85,4 +72,38 @@ class MainViewModel @Inject constructor(
             repository.removeFromFavorites(objekDataEntity)
         }
     }
+
+    fun filterMenu(query: String) {
+        val filtered = if (query.isEmpty()) {
+            originalList
+        } else {
+            originalList.filter {
+                it.title.contains(query, ignoreCase = true) || it.category.contains(query, ignoreCase = true)
+            }
+        }
+
+        _filteredList.value = applySorting(filtered)
+    }
+
+    fun sortList(sortType: Constant.SortType) {
+        currentSortType = sortType
+        _filteredList.value = applySorting(_filteredList.value ?: originalList)
+    }
+
+    private fun applySorting(list: List<ObjekData>): List<ObjekData> {
+        Log.d("MainViewModel", "Sorting list with type: $currentSortType")
+        val sortedList = when (currentSortType) {
+            Constant.SortType.AZ -> list.sortedBy { it.title }
+            Constant.SortType.ZA -> list.sortedByDescending { it.title }
+            Constant.SortType.PRICE_LOW_TO_HIGH -> list.sortedBy { it.price }
+            Constant.SortType.PRICE_HIGH_TO_LOW -> list.sortedByDescending { it.price }
+        }
+        Log.d("MainViewModel", "Sorted list size: ${sortedList.size}")
+        return sortedList
+    }
+
+
+
+
+    var currentSortType: Constant.SortType = Constant.SortType.AZ
 }

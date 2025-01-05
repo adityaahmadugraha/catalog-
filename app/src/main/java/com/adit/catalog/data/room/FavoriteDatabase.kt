@@ -9,20 +9,5 @@ import androidx.room.RoomDatabase
 abstract class FavoriteDatabase : RoomDatabase() {
     abstract fun favoriteDao(): FavoriteDao
 
-    companion object {
-        @Volatile
-        private var INSTANCE: FavoriteDatabase? = null
 
-        fun getDatabase(context: Context): FavoriteDatabase {
-            return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    FavoriteDatabase::class.java,
-                    "favorite_database"
-                ).build()
-                INSTANCE = instance
-                instance
-            }
-        }
-    }
 }

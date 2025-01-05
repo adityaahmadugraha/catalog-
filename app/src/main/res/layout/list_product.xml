@@ -54,29 +54,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
-                        android:src="@drawable/ic_star"
-                        app:layout_constraintBottom_toBottomOf="@+id/tv_ratting"
-                        app:layout_constraintEnd_toStartOf="@+id/tv_ratting"
-                        app:layout_constraintTop_toTopOf="@+id/tv_ratting" />
-
-
-                    <TextView
-                        android:id="@+id/tv_ratting"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:text="5.9"
-                        android:fontFamily="@font/open_sans_regular"
-                        android:textColor="@color/white"
-                        android:textSize="10sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -110,7 +87,7 @@
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/open_sans_regular"
                 android:maxLines="1"
-                android:text="120_000"
+                android:text="@string/_120_000"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -127,7 +104,7 @@
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/open_sans_regular"
                 android:maxLines="1"
-                android:text="5"
+                android:text="@string/_5"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -140,7 +117,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:contentDescription="button favorite"
+                android:contentDescription="@string/button_favorite"
                 android:src="@drawable/ic_favorite"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_price"
                 app:layout_constraintEnd_toEndOf="parent"
