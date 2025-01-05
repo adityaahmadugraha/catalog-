@@ -1,6 +1,5 @@
 package com.adit.catalog.ui.detail
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -22,14 +21,12 @@ class DetailViewModel @Inject constructor(
 
     fun addFavorite(data: ObjekData) {
         viewModelScope.launch {
-            Log.d("DetailViewModel", "Menambahkan ${data.title} ke favorit")
             repository.addToFavorites(data.toEntity())
         }
     }
 
     fun removeFavorite(data: ObjekData) {
         viewModelScope.launch {
-            Log.d("DetailViewModel", "Menghapus ${data.title} dari favorit")
             repository.removeFromFavorites(data.toEntity())
         }
     }

@@ -54,7 +54,6 @@ class MainAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        Log.d("MainAdapter", "Binding item at position $position: ${item.title}")
         holder.bind(item)
     }
 

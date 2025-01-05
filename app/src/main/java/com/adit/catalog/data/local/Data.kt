@@ -104,15 +104,29 @@ object Data {
         ),
         ObjekData(
             8,
-            R.drawable.buku2,
-            "Di Tanah Lada",
-            "",
-            "8",
-            2000,
+            R.drawable.buku7,
+            "Good to Great",
+            "Selama lima tahun melakukan penelitian, Jim Collins dan timnya, setelah menyisir data dan ribuan halaman wawancara, menemukan faktor-faktor kunci penentu kehebatan—mengapa sejumlah perusahaan berhasil membuat lompatan, sementara yang lainnya gagal.\n" +
+                    "\n" +
+                    "“Beberapa dari konsep-konsep kunci dalam studi ini,” komentar Jim, “mematahkan kultur bisnis modern kita dan, terus terang, akan membuat sekalangan orang resah.”\n" +
+                    "Mungkin saja, tapi siapa yang bisa mengabaikan temuan-temuan ini?",
+            "363 halaman",
+            112500,
             "Politik",
-            "Ziggy Zezsyazeoviennazabrizkie",
-            "November 6, 2024"
+            "Jim Collins",
+            "20 Oktober 2020"
         ),
+//        ObjekData(
+//            8,
+//            R.drawable.buku2,
+//            "Di Tanah Lada",
+//            "",
+//            "8",
+//            2000,
+//            "Politik",
+//            "Ziggy Zezsyazeoviennazabrizkie",
+//            "November 6, 2024"
+//        ),
 
 
         ObjekData(
@@ -210,8 +224,5 @@ object Data {
             "Ramadhan KH",
             "19 Juni 2024"
         ),
-
-
-        )
-
+    )
 }
